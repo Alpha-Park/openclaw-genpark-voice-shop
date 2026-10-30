@@ -1,0 +1,10 @@
+{
+  "name": "openclaw-genpark-voice-shop",
+  "version": "1.0.0",
+  "description": "OpenClaw GenPark Voice Shop - Acoustic phoneme rate pacing, conversational turn-taking latency budgeting, and voice biometric entropy verification with zero dependencies.",
+  "tools": [
+    "compute_acoustic_pacing_wpm",
+    "budget_turn_taking_latency",
+    "verify_voice_entropy_biometric"
+  ]
+}
