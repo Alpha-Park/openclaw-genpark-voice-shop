@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any, List
 from client import OpenClawGenParkVoiceShop
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("openclaw-genpark-voice-shop")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("openclaw-genpark-voice-shop")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('openclaw-genpark-voice-shop')
 
 vs = OpenClawGenParkVoiceShop()
 
@@ -60,8 +51,7 @@ def verify_voice_entropy_biometric(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing Voice Shop:")
-    print(budget_turn_taking_latency())
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
